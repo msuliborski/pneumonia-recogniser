@@ -5,9 +5,10 @@ from skimage import color
 
 
 class CustomGenerator:
-    def __init__(self, image_filenames, batch_size):
+    def __init__(self, image_filenames, batch_size, data_dir):
         self.image_filenames = image_filenames
         self.batch_size = batch_size
+        self.data_dir = data_dir
 
     def __len__(self):
         return (np.ceil(len(self.image_filenames) / float(self.batch_size))).astype(np.int)
@@ -17,7 +18,7 @@ class CustomGenerator:
         batch_x = []
         batch_y = []
         for img in batch:
-            rgb = imread(os.path.join(DATADIR, img))/255
+            rgb = imread(os.path.join(data_dir, img))/255
             lab = color.rgb2lab(rgb)
             batch_x.append(lab[:, :, 0]/100)
             batch_y.append(lab[:, :, 1:]/128)
