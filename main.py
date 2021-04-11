@@ -3,13 +3,19 @@ import os
 from sklearn.model_selection import train_test_split
 from generator import CustomGenerator
 from env_variables import TRAINING_DIR, VALIDATION_DIR, BATCH_SIZE, IMG_SIZE, MARK, EPOCHS
+from random import shuffle
 
-names_training = []
+data_training = []
 names_validation = []
 
 print("Data load started")
-for img in os.listdir(TRAINING_DIR):
-    names_training.append(img)
+for group in os.listdir(TRAINING_DIR):
+    for img in os.listdir(TRAINING_DIR + "\\" + group):
+        if(group == "PNEUMONIA"):
+            data_training.append([img, 1])
+        elif (group == "NORMAL"):
+            data_training.append([img, 0])
+shuffle(data_training)
 print("Data loaded to training generator")
 for img in os.listdir(VALIDATION_DIR):
     names_validation.append(img)
