@@ -2,10 +2,8 @@ import os
 import numpy as np
 from skimage.io import imread
 from skimage import color
-from src.env_variables import DATADIR
 
-
-class Custom_Generator(tf.keras.utils.Sequence):
+class Custom_Generator(np.array(), DATADIR):
 
     def __init__(self, image_filenames, batch_size):
         self.image_filenames = image_filenames
