@@ -8,7 +8,7 @@ class NamesLoader:
         for group in os.listdir(data_dir):
             for img in os.listdir(data_dir + "\\" + group):
                 if (group == "PNEUMONIA"):
-                    data.append([group + "/" + img, 1])
+                    data.append([imread((group + "/" + img), as_gray=True) / 255, 1])
                 elif (group == "NORMAL"):
                     data.append([group + "/" + img, 0])
         shuffle(data)
