@@ -48,7 +48,7 @@ def train(epochs, device, learning_rate=1e-3):
             labels = labels.to(device, dtype=torch.long)
             images = images[0, :, :, :]
             images = images.to(device, dtype=torch.float)
-            print("Epoch ", epoch + 1, " of ", epochs, ", Batch ", i + 1, " of ", batch_num)
+            print("Epoch ", epoch + 1, " of ", epochs, ", Batch ", i + 1, " of ", batch_num - 1)
             optimizer.zero_grad()
             pred = cnn(images)
             loss = ce(pred, labels)

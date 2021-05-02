@@ -22,16 +22,6 @@ def validate(model, data):  # accuracy
     return correct * 100 / total
 
 
-def mse(model, data):  # mean squared error
-    results = []
-    for i, (images, labels) in enumerate(data):
-        images = images.cuda()
-        value, pred = torch.max(model(images), 1)
-        # pred = pred.data.cpu()
-        results.append(torch.sum(pred - labels) ** 2)
-    return sum(results) / len(results)
-
-
 def cel(model, data, ce):  # cross-entropy
     device = torch.device("cpu")
     if torch.cuda.is_available():
