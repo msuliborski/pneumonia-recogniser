@@ -12,7 +12,7 @@ from torch.utils.data import DataLoader
 from sklearn.metrics import confusion_matrix
 from resources import validate, data_transforms, accuracy, save_wrong, plot_confusion_matrix
 
-MODEL_LOAD = "../models/resnet18/?????????"
+MODEL_LOAD = "../models/resnet18/resnet18_24_acc_0.91_loss_0.24456"
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print("Device used: ", device)

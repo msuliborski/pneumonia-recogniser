@@ -1,4 +1,4 @@
-EPOCHS = 50
+EPOCHS = 100
 BATCH_SIZE = 8
 TRAINING_DIR = "../chest_xray/train"
 VALIDATION_DIR = "../chest_xray/val"
